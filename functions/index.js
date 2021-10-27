@@ -37,10 +37,10 @@ exports.verifyPurchases = functions.https.onRequest((req, res) => {
           .collection("purchases")
           .doc()
           .set({ ...purchaseInfo })
-          .then(() => {
+          .then((result1) => {
             res.json(purchaseInfo);
           })
           .catch(err => console.log(err));
       }
-    }).catch( err => console.log(err))
+    }).catch(err => console.log(err))
 });
