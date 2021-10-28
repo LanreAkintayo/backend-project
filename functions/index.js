@@ -18,9 +18,9 @@ exports.verifyPurchases = functions.https.onRequest((req, res) => {
   const firestore = admin.firestore();
 
   let purchaseInfo = {
-    purchaseToken: req.body.purchaseToken,
-    orderId: req.body.orderId,
-    purchaseTime: req.body.purchaseTime,
+    purchaseToken: req.query.purchaseToken,
+    orderId: req.query.orderId,
+    purchaseTime: req.query.purchaseTime,
     isValid: false,
   };
 
