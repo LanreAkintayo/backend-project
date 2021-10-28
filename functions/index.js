@@ -29,7 +29,7 @@ exports.verifyPurchases = functions.https.onRequest((req, res) => {
     .where("purchaseToken", "==", purchaseInfo.purchaseToken)
     .get()
     .then((result) => {
-      if (result.exists) {
+      if (result.docs.length > 0) {
         res.json(purchaseInfo);
       } else {
         purchaseInfo.isValid = true;
@@ -44,3 +44,5 @@ exports.verifyPurchases = functions.https.onRequest((req, res) => {
       }
     }).catch(err => console.log(err))
 });
+
+// https://us-central1-freshers-guide.cloudfunctions.net/verifyPurchases
